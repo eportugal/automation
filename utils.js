@@ -137,7 +137,7 @@ export const createEmailConsumer = () => {
 };
 
 export const getExistingEmail = () => {
-    const filePath = 'test-logs/app-auth/email-logs.json';
+    const filePath = 'test-logs/email-logs.json';
 
     return cy.readFile(filePath).then((data) => {
         if (!data || Object.keys(data).length === 0) {
