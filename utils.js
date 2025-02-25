@@ -120,7 +120,7 @@ export const createEmailConsumer = () => {
     email = emailBase;
     console.log(emailBase);
 
-    const emailLogFilePath = './test-logs/app-auth/email-logs.json';
+    const emailLogFilePath = './test-logs/email-logs.json';
 
     cy.readFile(emailLogFilePath).then((existingLogs = {}) => {
         const existingIds = Object.keys(existingLogs).map(Number);
