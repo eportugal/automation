@@ -113,7 +113,7 @@ try {
 }
 };
   
-export const createEmailConsumer = () => {
+export const createEmail= () => {
     const randomEmail = faker.internet.email().toLowerCase();
     const emailID = randomEmail.split('@')[0];
     const emailBase = `emanoel+${emailID}@wearetaly.com`;
