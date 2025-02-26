@@ -7,13 +7,18 @@ const API_KEY = '42d0fa7e23msh1c9d9907b2f583bp19f37fjsnfafc30c69a76';
 const API_HOST = 'privatix-temp-mail-v1.p.rapidapi.com';
 
 export const extractConfirmationCode = (text) => {
-  if (!text) {
-    console.error('Incorrect text or empty');
-    return null;
-  }
-  const match = text.match(/below:(\d{6})/);
-  return match ? match[1] : null; 
-};
+    if (!text) {
+      console.error('Incorrect text or empty');
+      return null;
+    }
+
+    const normalizedText = text.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
+
+    const match = normalizedText.match(/:\s*(\d{6})/);
+    
+    return match ? match[1] : null; 
+  };
+  
 
 export const apiRequest = () => {
     const apiUrl = `https://privatix-temp-mail-v1.p.rapidapi.com/request/mail/id/${hash}/`;
